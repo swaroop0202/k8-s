@@ -2,6 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: mysql
+  namespace: expense
   labels:
     app: db 
     environment: dev 
@@ -23,5 +24,19 @@ spec:
       containers:
       - name: mysql
         image: swaroop02/mysql:1.0
-        ports:
-        - containerPort: 80
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: my-service
+spec:
+  selector:
+    app: db 
+    environment: dev 
+    project: expense
+  ports:
+    - protocol: TCP
+      port: 3306
+      targetPort: 3306
