@@ -33,12 +33,12 @@ spec:
       containers:
       - name: backend
         image: swaroop02/backend:1.0
-      env:
-        - name: DB_HOST
-          valueFrom:
-            configMapKeyRef:
-              name: config-demo
-              key: DB_HOST
+        env:
+          - name: DB_HOST
+            valueFrom:
+              configMapKeyRef:
+                name: config-demo
+                key: DB_HOST
 
 ---
 
