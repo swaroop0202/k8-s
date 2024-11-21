@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mysql
+  labels:
+    app: db 
+    environment: dev 
+    project: expense
+spec:
+  replicas: 2
+  selector:
+    matchLabels: 
+      app: db 
+      environment: dev 
+      project: expense
+  template:
+    metadata:
+      labels:
+        app: db 
+        environment: dev 
+        project: expense
+    spec:
+      containers:
+      - name: mysql
+        image: swaroop02/mysql:1.0
+        ports:
+        - containerPort: 80
