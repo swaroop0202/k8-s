@@ -34,19 +34,16 @@ spec:
       containers:
       - name: backend
         image: swaroop02/backend:v1.0
-        env:
-          - name: DB_HOST
-            valueFrom:
-              configMapKeyRef:
-                name: config-demo
-                key: DB_HOST
+        envFrom:
+        - configMapRef:
+          name: config-demo
 
 ---
 
 apiVersion: v1
 kind: Service
 metadata:
-  name: my-service
+  name: backend 
 spec:
   selector:
     app: backend 
