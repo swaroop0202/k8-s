@@ -33,7 +33,7 @@ spec:
     spec:
       containers:
       - name: backend
-        image: joindevops/backend:v1.0
+        image: swaroop02/backend:v1.0
         env:
           - name: DB_HOST
             valueFrom:
