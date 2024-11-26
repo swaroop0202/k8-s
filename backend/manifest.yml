@@ -4,7 +4,7 @@ metadata:
   name: config-demo
   namespace: expense
 data:
-  DB_HOST: mysql 
+  DB_HOST: 44.200.190.185
 
 ---
 
